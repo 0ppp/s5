@@ -1,0 +1,27 @@
+
+>mongo 
+>show dbs
+>use blog
+>db.createCollection('post')
+
+db.post.insert({title:"online",url:"www.abc.com",tag:["food","travel"],pname:"mukesh",pdate:new Date("2019-03-12"), like:89,user:[{name:"abhi",comment:"good",message:"do best", cdate:new Date("2020-03-12"),like:1}]})
+
+db.post.insert({title:"wetpet",url:"www.wetpet.com",tag:["food","travel",],pname:"Amit",pdate:new Date("2018-03-12"),like:82,user:[{name:"abhi",comment:"good",message:"do best",time:"4pm",like:1},{name:"mukesh",comment:"best",message:"success", cdate:new Date("2008-11-12"),like:2}]})
+ 
+db.post.insert({title:"wetpet",url:"www.wetpet.com",tag:["food","travel","magic"],pname:"abhijeet",pdate:new Date("2017-03-12"),like:182,user:[{name:"sagar",comment:"like",message: "do best",time:"4pm",like:1},{name:"mukesh",comment:"best",message:"success", cdate:new Date("2019-03-12"),like:2}]})
+
+db.post.insert({title:"nonveg",url:"www.non.com",tag:["food","travel","chiken"],pname:"Amit",pdate:new Date("2019-07-12"), like:82,user:[{name:"manisha",comment:"good",message:"do best",time:"4pm",like:0},{name:"manasi",comment:"best",message:"success", cdate:new Date("2018-03-12"),like:0}]})
+
+
+
+a) >
+db.post.find({tag:"food"})
+
+b) >
+db.post.find({pname:"Amit"})
+
+c) >
+db.post.find({tag:"travel",pdate:{"$lte":new Date("2018-03-11")}, "user.name":"sagar","user.comment":"like"})
+d) > 
+db.post.find({$or:[{"user.cdate":{$lte:new Date("2019-08-07")}},{"user.like":0}]})
+
